@@ -1,0 +1,6 @@
+{
+  "name": "Wrlib.utils.stringexpander",
+  "tagline": "String Expander Library for .NET",
+  "body": "# WrLib.Utils.StringExpander\r\nString Expander Library for .NET\r\n\r\n## Example\r\n  \r\n```\r\nvar dict = new Dictionary<string, string>();\r\ndict[\"name\"] = \"Smock\";\r\ndict[\"phone\"] = \"180087763334\";\r\ndict[\"info\"] = \"$(name):$(phone)\";\r\n\r\nIStringExpander sx = new StringExpander(dict);\r\n\r\nAssert.AreEqual(\"Value of $(info) is 'Smock:180087763334'\",\r\n    sx.Expand(\"Value of $$(info) is '$(info)'\"));\r\n```\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}

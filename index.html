@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Wrlib.utils.stringexpander : String Expander Library for .NET">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Wrlib.utils.stringexpander</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/wrongite/WrLib.Utils.StringExpander">View on GitHub</a>
+
+          <h1 id="project_title">Wrlib.utils.stringexpander</h1>
+          <h2 id="project_tagline">String Expander Library for .NET</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/wrongite/WrLib.Utils.StringExpander/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/wrongite/WrLib.Utils.StringExpander/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="wrlibutilsstringexpander" class="anchor" href="#wrlibutilsstringexpander" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WrLib.Utils.StringExpander</h1>
+
+<p>String Expander Library for .NET</p>
+
+<h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
+
+<pre><code>var dict = new Dictionary&lt;string, string&gt;();
+dict["name"] = "Smock";
+dict["phone"] = "180087763334";
+dict["info"] = "$(name):$(phone)";
+
+IStringExpander sx = new StringExpander(dict);
+
+Assert.AreEqual("Value of $(info) is 'Smock:180087763334'",
+    sx.Expand("Value of $$(info) is '$(info)'"));
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Wrlib.utils.stringexpander maintained by <a href="https://github.com/wrongite">wrongite</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
