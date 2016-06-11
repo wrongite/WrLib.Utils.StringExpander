@@ -30,15 +30,28 @@ namespace WrLib.Utils.StringExpander.Test
             var dict = new Dictionary<string, string>();
             dict["name"] = "Smock";
             dict["phone"] = "180087763334";
-            dict["info"] = "$$$(name):$(phone)$$";
-            dict["kak"] = "$$$$$$$$";
+            dict["info"] = "$(name):$(phone)";
 
             IStringExpander sx = new StringExpander(dict);
 
-            Assert.AreEqual("$$$$", sx.Expand("$(kak)"));
-            Assert.AreEqual("$Smock:180087763334$", sx.Expand("$(info)"));
-            Assert.AreEqual(sx.Expand("$(info)"), sx.Resolve("info"));
+            // The escape characters for $ is $$.
+            Assert.AreEqual("Value of $(info) is 'Smock:180087763334'", sx.Expand("Value of $$(info) is '$(info)'"));
             
+        }
+
+        [TestMethod]
+        public void TestRecursiveKeyTolerance()
+        {
+            var dict = new Dictionary<string, string>();
+            dict["A"] = "A is [$(A)]";
+            dict["B"] = "B is not [$(C)]";
+            dict["C"] = "C is not [$(B)]";
+
+            IStringExpander sx = new StringExpander(dict);
+
+            Assert.AreEqual("Value of $(A) is [A is [$(A)]]", sx.Expand("Value of $$(A) is [$(A)]"));
+            Assert.AreEqual("Value of $(B) is [B is not [$(C)]]", sx.Expand("Value of $$(B) is [$(B)]"));
+            Assert.AreEqual("Value of $(C) is [C is not [$(B)]]", sx.Expand("Value of $$(C) is [$(C)]"));
         }
     }
 }
