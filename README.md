@@ -1,7 +1,7 @@
 # WrLib.Utils.StringExpander
 String Expander Library for .NET
 
-## Example
+### Example
   
 ```
   var dict = new Dictionary<string, string>();
@@ -11,5 +11,11 @@ String Expander Library for .NET
 
   IStringExpander sx = new StringExpander(dict);
 
-  Assert.AreEqual("Value of $(info) is 'Smock:180087763334'", sx.Expand("Value of $$(info) is '$(info)'"));
+  Assert.AreEqual("Value of $(info) is 'Smock:180087763334'",
+    sx.Expand("Value of $$(info) is '$(info)'"));
 ```
+
+
+### Download
+
+https://www.nuget.org/packages/WrLib.Utils.StringExpander/
